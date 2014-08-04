@@ -6,7 +6,7 @@ AngularJS calculator that will help you see where you're going if you allocate y
 ## This is a tool to help you see where you're going
 Not saving has consequences. Not investing has bigger consequences. The tool is very simple:
 
-![Screenshot](https://d1zjcuqflbd5k.cloudfront.net/files/acc_93185/ZPy5?response-content-disposition=inline;%20filename=Screenshot%20on%208.4.2014%20at%2010.15.09%20AM.png&Expires=1407162299&Signature=T4hwSd7aE-e6FbHtqRYZrxJApkznvrUyUTx1MMB09v1As8KDbP10ML~VaOTfHdRLG6ofbS76Dnl8ikbVXNEiL7Y~BJLq1QCyvRumxIpR4xzG6LXkXc73dWnGfxHuC6XNfvAcGndAwyUGEtN2ciqH918kMI7KGvUIImifFdVk9mc_&Key-Pair-Id=APKAJTEIOJM3LSMN33SA)
+![Screenshot](http://i.imgur.com/5fDJu3K.png)
 
 The 70/20/10 percentages are based on the wisdom from The Richest Man in Babylon and to some degree, Rich Dad, Poor Dad.
 
