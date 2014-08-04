@@ -27,14 +27,12 @@ require [
 	'angular',
 	'sanitize',
 	'controllers',
-	'directives',
 	'filters',
 ], (angular) ->
 	angular.element(document).ready ->
 		angular.module 'app', [
 			'ngSanitize',
 			'app.controllers',
-			'app.directives',
 			'app.filters',
 		]
 

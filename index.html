@@ -1,19 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>financial.freedom</title>
+	<meta charset="UTF-8" />
+	<title>Financial -> Freedom</title>
 
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/normalize.min.css" />
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/foundation.min.css" />
 	<link rel="stylesheet" href="css/core.css" />
 
-	<link rel="shortcut icon" href="http://nicholsonws.com/favicon.jpg" />
+	<link rel="shortcut icon" href="//nwsco.org/favicon.jpg" />
 </head>
-<body ng-controller="MainCtrl">
+<body>
 
-<div id="container">
-	<div class="clearfix">
+<div id="container" class="clearfix" ng-controller="MainController">
 	<form action="javascript:;" method="post" class="small-12 medium-5 columns">
 		<h1>
 			Get a glimpse of your future.
@@ -143,19 +142,18 @@
 			</thead>
 
 			<tbody>
-				<tr ng-repeat="i in range() track by $index" ng-result="{{ $index }}">
+				<tr ng-repeat="i in range() track by $index" ng-controller="Results">
 					<td>
 						{{ ($index + 1) === 1 ? 'This Month' : ($index + 1) + ' months' }}:
 					</td>
 
-					<td ng-bind-html="getCash($index + 1) | currency | isMillion"></td>
-					<td ng-bind-html="getAssets($index + 1) | currency | isMillion"></td>
-					<td ng-bind-html="getSavings($index + 1) | currency | isMillion"></td>
-					<td ng-bind-html="getTotal($index + 1) | currency | isMillion"></td>
+					<td ng-bind-html="getCash($index + 1) | currency | isMilestone:100000"></td>
+					<td ng-bind-html="getAssets($index + 1) | currency | isMilestone:100000"></td>
+					<td ng-bind-html="getSavings($index + 1) | currency | isMilestone:100000"></td>
+					<td ng-bind-html="getTotal($index + 1) | currency | isMilestone:100000"></td>
 				</tr>
 			</tbody>
 		</table>
-	</div>
 	</div>
 </div>
 
