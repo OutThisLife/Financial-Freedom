@@ -1,0 +1,151 @@
+/**
+ * Core SASS
+ */
+
+@import classes.sass
+
+// -----------------------------------------------
+
+/**
+ * Variables
+ */
+
+// Fonts
+$font: Arial, sans-serif
+
+// Colours
+$default: #404040
+$primary: #2D5E9D
+$secondary: #2D5E9D
+$bg: #eee
+
+// -----------------------------------------------
+
+/**
+ * Keyframes
+ */
+
+// -----------------------------------------------
+
+/**
+ * Site-specific mixins
+ */
+
+// -----------------------------------------------
+
+/**
+ * General
+ */
+body
+	color: $default
+	font: rem(11)/1.5 $font
+	margin: 0
+	padding: 25px 0 0 0
+	background: $bg
+
+	p, ul, ol, dl, td
+		font: rem(11)/1.5 $font
+
+a
+	color: $primary
+	text-decoration: none
+
+	&:hover
+		color: lighten($primary, 10)
+
+@include colorSelection
+	color: #FFF
+	background: #222
+
+// -----------------------------------------------
+
+/**
+ * Global styles
+ */
+
+// Buttons
+[class*="button-"]
+
+// Social
+li[class*="social-"]
+
+// Forms
+form
+	.prefix, .postfix
+		font-size: rem(12)
+		border: 1px solid #DDD
+		border-right: 0
+		background: #FAFAFA
+
+input[type=text],
+input[type=number],
+select
+	font-size: rem(12)
+	border: 1px solid #DDD
+	@include transition(none)
+	-webkit-box-shadow: none !important
+	-moz-box-shadow: none !important
+	box-shadow: none !important
+	background: #FFF
+
+	&:focus, &:active, &:hover
+		z-index: 1
+		border-color: rgba($primary, .25)
+		background: rgba($primary, .05)
+
+select
+	cursor: pointer
+
+// Tables
+table
+	border: 0
+
+	thead
+		background: transparent
+
+		tr th
+			color: $secondary
+			font-size: rem(11)
+			text-transform: uppercase
+			text-align: center
+			border-bottom: 1px solid #DDD
+
+			&:first-child
+				text-align: left
+
+			&:last-child
+				text-align: right
+
+	tbody tr
+		td
+			font-size: rem(12)
+			text-align: center
+			padding: 7px 5px
+
+			&:first-child
+				text-align: left
+
+			&:last-child
+				text-align: right
+
+// -----------------------------------------------
+
+#container
+	max-width: 90%
+	margin: 0 auto 25px
+	padding: 25px
+	border: 1px solid rgba(#000, .1)
+	background: #FFF
+
+	h1,h2,h3,h4,h5,h6
+		margin: 25px 0 10px
+		padding: 0
+		letter-spacing: -1px
+
+		&:first-child
+			margin-top: 0
+
+	h1
+		font-size: rem(27)
+
+// -----------------------------------------------

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>financial.freedom</title>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/normalize.min.css" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/foundation.min.css" />
+	<link rel="stylesheet" href="css/core.css" />
+
+	<link rel="shortcut icon" href="http://nicholsonws.com/favicon.jpg" />
+</head>
+<body ng-controller="MainCtrl">
+
+<div id="container">
+	<div class="clearfix">
+	<form action="javascript:;" method="post" class="small-12 medium-5 columns">
+		<h1>
+			Get a glimpse of your future.
+			<small>If you do it right.</small>
+		</h1>
+		<br />
+
+		<select ng-model="months">
+			<option ng-repeat="i in range(50) track by $index" ng-value="{{ ($index + 1) * 12 }}" ng-selected="{{ $index === 0 }}">
+				{{ $index + 1}} year(s)
+			</option>
+		</select>
+
+		<label class="row collapse">
+			<div class="small-4 columns">
+				<span class="prefix">Cash</span>
+			</div>
+
+			<div class="small-8 columns">
+				<input type="number" ng-model="cash" placeholder="How much cash do you have right now?" />
+			</div>
+		</label>
+
+		<label class="row collapse">
+			<div class="small-4 columns">
+				<span class="prefix">Cash Cap</span>
+			</div>
+
+			<div class="small-8 columns">
+				<input type="number" ng-model="cashcap" placeholder="What's the maximum amount of cash you keep?" />
+			</div>
+		</label>
+
+		<label class="row collapse">
+			<div class="small-4 columns">
+				<span class="prefix">Savings</span>
+			</div>
+
+			<div class="small-8 columns">
+				<input type="number" ng-model="savings" placeholder="How much savings do you have right now?" />
+			</div>
+		</label>
+
+		<label class="row collapse">
+			<div class="small-4 columns">
+				<span class="prefix">Assets</span>
+			</div>
+
+			<div class="small-8 columns">
+				<input type="number" ng-model="assets" placeholder="What do you have invested?" />
+			</div>
+		</label>
+
+		<label class="row collapse">
+			<div class="small-4 columns">
+				<span class="prefix">% yearly apprec.</span>
+			</div>
+
+			<div class="small-8 columns">
+				<input type="text" ng-model="appreciation" placeholder="What's a conservative annual gain for your assets?" />
+			</div>
+		</label>
+
+		<label class="row collapse">
+			<div class="small-4 columns">
+				<span class="prefix">Income/mo</span>
+			</div>
+
+			<div class="small-8 columns">
+				<input type="number" ng-model="income" placeholder="What do you make per month?" />
+			</div>
+		</label>
+
+		<label class="row collapse">
+			<div class="small-4 columns">
+				<span class="prefix">Expenses/mo</span>
+			</div>
+
+			<div class="small-8 columns">
+				<input type="number" ng-model="expenses" placeholder="How much do you pay per month for various expenses?" />
+			</div>
+		</label>
+
+		<hr style="margin-top: 0" />
+
+		<label class="row collapse">
+			<div class="small-4 columns">
+				<span class="prefix">% to cash</span>
+			</div>
+
+			<div class="small-8 columns">
+				<input type="text" ng-model="cash_perc" value="70%" placeholder="70%" />
+			</div>
+		</label>
+
+		<label class="row collapse">
+			<div class="small-4 columns">
+				<span class="prefix">% to invest</span>
+			</div>
+
+			<div class="small-8 columns">
+				<input type="text" ng-model="asset_perc" value="20%" placeholder="20%" />
+			</div>
+		</label>
+
+		<label class="row collapse">
+			<div class="small-4 columns">
+				<span class="prefix">% to savings</span>
+			</div>
+
+			<div class="small-8 columns">
+				<input type="text" ng-model="saving_perc" value="10%" placeholder="10%" />
+			</div>
+		</label>
+	</form>
+
+	<div class="small-12 medium-7 columns">
+		<h5 ng-hide="isFilledIn()" ng-cloak>Please enter in all values.</h5>
+
+		<table class="row full-width" ng-show="isFilledIn()" ng-cloak>
+			<thead>
+				<th>When</th>
+				<th>Cash ({{ cash_perc }})</th>
+				<th>Assets ({{ asset_perc }})</th>
+				<th>Savings ({{ saving_perc }})</th>
+				<th>Net Total</th>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat="i in range() track by $index" ng-result="{{ $index }}">
+					<td>
+						{{ ($index + 1) === 1 ? 'This Month' : ($index + 1) + ' months' }}:
+					</td>
+
+					<td ng-bind-html="getCash($index + 1) | currency | isMillion"></td>
+					<td ng-bind-html="getAssets($index + 1) | currency | isMillion"></td>
+					<td ng-bind-html="getSavings($index + 1) | currency | isMillion"></td>
+					<td ng-bind-html="getTotal($index + 1) | currency | isMillion"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+
+<script data-main="js/core" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js"></script>
+</body>
+</html>
