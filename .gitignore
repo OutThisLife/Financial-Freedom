@@ -1,8 +1,0 @@
-node_modules/
-.sass-cache/
-src/
-npm-debug.log
-*.coffee
-*.sass
-package.json
-Gulpfile.js
