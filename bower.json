@@ -1,0 +1,23 @@
+{
+  "name": "FinancialIndependence",
+  "description": "ERROR: No README data found!",
+  "main": "Gulpfile.js",
+  "authors": [
+    "TNicholson"
+  ],
+  "license": "BSD",
+  "homepage": "https://github.com/outthislife/financial-freedom",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-sanitize": "~1.4.8",
+    "angular": "~1.4.8",
+    "foundation": "~5.5.3"
+  }
+}
