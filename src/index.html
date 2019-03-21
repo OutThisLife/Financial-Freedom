@@ -1,97 +1,19 @@
-<!doctype html>
-<html lang="en-US">
-<head>
-	<meta charset="UTF-8" />
-	<title>Financial -> Freedom</title>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Financial -> Freedom</title>
 
-	<!-- build:css core.min.css -->
-	<link rel="stylesheet" href="css/core.css" />
-	<!-- endbuild -->
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+  </head>
 
-	<link rel="shortcut icon" href="//nwsco.org/favicon.jpg" />
-</head>
-<body>
-
-<div id="container" class="clearfix" ng-controller="MainController">
-	<form action="javascript:;">
-		<label>
-			Months
-			<input type="text"
-				ng-model="months"
-				placeholder="How many months do you want to see?" />
-		</label>
-
-		<label>
-			Income/mo
-			<input type="text"
-				ng-model="income"
-				placeholder="What do you make per month?" />
-		</label>
-
-		<label>
-			Expenses/mo
-			<input type="text"
-				ng-model="expenses"
-				placeholder="How much do you pay per month for various expenses?" />
-		</label>
-
-		<label>
-			Savings
-			<input type="text"
-				ng-model="savings"
-				placeholder="How much savings do you have right now?" />
-		</label>
-
-		<label>
-			Assets
-			<input type="text"
-				ng-model="assets"
-				placeholder="What do you have invested?" />
-		</label>
-
-		<label>
-			% to assets
-			<input type="text"
-				ng-model="asset_perc"
-				value="20%" placeholder="20%" />
-		</label>
-
-		<label>
-			% to savings
-			<input type="text"
-				ng-model="saving_perc"
-				value="10%" placeholder="10%" />
-		</label>
-	</form>
-
-	<table>
-		<thead>
-			<th>&nbsp;</th>
-			<th>Checkings</th>
-			<th>Savings (<span ng-bind-html="saving_perc"></span>)</th>
-			<th>Assets (<span ng-bind-html="asset_perc"></span>)</th>
-			<th>Net Worth (-C)</th>
-		</thead>
-
-		<tbody>
-			<tr ng-repeat="i in range() track by $index" ng-controller="Results">
-				<td ng-bind-html="$index + 'mo'"></td>
-
-				<td ng-bind-html="expenses | currency"></td>
-				<td ng-bind-html="r_savings() | currency"></td>
-				<td ng-bind-html="r_assets() | currency"></td>
-				<td ng-bind-html="r_worth() | currency"></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-<!-- build:js core.min.js -->
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="js/controllers.js"></script>
-<script src="js/core.js"></script>
-<!-- endubild -->
-
-</body>
+  <body>
+    <div id="app"></div>
+    <script src="index.tsx"></script>
+  </body>
 </html>

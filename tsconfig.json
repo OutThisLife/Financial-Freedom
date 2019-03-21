@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "jsx": "react",
+    "lib": ["es6", "dom", "esnext.asynciterable"],
+    "moduleResolution": "node",
+    "typeRoots": ["./typings/*.ts", "./node_modules/@types"],
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
+  }
+}

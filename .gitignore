@@ -1,8 +1,5 @@
 node_modules/
-bower_components/
-.sass-cache/
-npm-debug.log
-package.json
-Gulpfile.js
-src/js/*.js
-src/css/*.css
+*.log
+dist/
+.cache/
+.vscode/
