@@ -102,13 +102,17 @@ const App = () => {
           form,
           Object.keys(cache)
             .filter(k => !/net|to_cash/.test(k))
-            .reduce((acc, k) => (
-              (acc[k] = {
-                value: cache[k],
-                writable: true,
-                enumerable: true
-              }), acc
-            ), {})
+            .reduce(
+              (acc, k) => (
+                (acc[k] = {
+                  value: cache[k],
+                  writable: true,
+                  enumerable: true
+                }),
+                acc
+              ),
+              {}
+            )
         )
       )
     }
