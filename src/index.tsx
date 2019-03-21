@@ -16,12 +16,12 @@ const Wrapper = styled('section')`
   display: grid;
   position: relative;
   max-width: 1400px;
-  height: 100vh;
-  overflow: hidden;
   margin: auto;
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(40, 1fr);
+    height: 100vh;
+    overflow: hidden;
     padding: var(--pad) 0;
   }
 
