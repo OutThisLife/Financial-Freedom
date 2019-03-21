@@ -101,7 +101,7 @@ const App = () => {
         Object.defineProperties(
           form,
           Object.keys(cache)
-            .filter(k => !/net|cash/.test(k))
+            .filter(k => !/net|to_cash/.test(k))
             .reduce((acc, k) => {
               acc[k] = {
                 value: cache[k],
