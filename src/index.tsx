@@ -76,6 +76,10 @@ const App = () => {
   const [form, setValue] = useState<IObject>(initialState)
 
   useEffect(() => {
+    if (!isLoading) {
+      return
+    }
+
     if (localStorage.getItem('entry')) {
       const cache = JSON.parse(localStorage.getItem('entry'))
 
