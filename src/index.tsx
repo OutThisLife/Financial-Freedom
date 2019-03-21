@@ -53,18 +53,18 @@ const Wrapper = styled('section')`
 `
 
 const initialState = {
-  months: 60,
-  income: 7000,
+  months: 24,
+  income: 5000,
   expenses: 3000,
   get net() {
     return this.income - this.expenses
   },
 
   checkings: 1000,
-  savings: 2000,
-  assets: 3000,
+  savings: 500,
+  assets: 0,
 
-  to_assets: 0.5,
+  to_assets: 0.3,
   to_savings: 0.1,
   get to_cash() {
     return Math.max(0, 1 - (this.to_savings + this.to_assets))
