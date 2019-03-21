@@ -61,7 +61,7 @@ export default () => {
 
         <hr />
 
-        <Field title="Checkings" placeholder="What's your checkings at?" />
+        <Field title="Cash" placeholder="What's your checkings at?" />
         <Field title="Savings" placeholder="What's your savings at?" />
         <Field title="Assets" placeholder="What do you have invested?" />
 

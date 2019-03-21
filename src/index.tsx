@@ -60,7 +60,7 @@ const initialState = {
     return this.income - this.expenses
   },
 
-  checkings: 1000,
+  cash: 1000,
   savings: 500,
   assets: 0,
 

@@ -42,7 +42,7 @@ const Wrapper = styled('table')`
 
 export default () => {
   const {
-    form: { months, net, to_assets, to_savings, to_cash }
+    form: { months, net, assets, savings, cash, to_assets, to_savings, to_cash }
   } = useContext(FormCTX)
 
   return (
@@ -50,21 +50,21 @@ export default () => {
       <thead>
         <tr>
           <th style={{ width: 20 }}>&nbsp;</th>
-          <th>Assets ({perc(to_assets)})</th>
-          <th>Saved ({perc(to_savings)})</th>
           <th>Cash ({perc(to_cash)})</th>
+          <th>Saved ({perc(to_savings)})</th>
+          <th>Assets ({perc(to_assets)})</th>
         </tr>
       </thead>
 
       <tbody key={net}>
         {[...Array(range(months + 1)).keys()]
-          .map(i => (i + 1) * net)
+          .map(i => i * net)
           .map((r, i) => (
             <tr key={i}>
               <td>{i}</td>
-              <td>{fmt(r * to_assets)}</td>
-              <td>{fmt(r * to_savings)}</td>
-              <td>{fmt(r * to_cash)}</td>
+              <td>{fmt(cash + r * to_cash)}</td>
+              <td>{fmt(savings + r * to_savings)}</td>
+              <td>{fmt(assets + r * to_assets)}</td>
             </tr>
           ))}
       </tbody>
