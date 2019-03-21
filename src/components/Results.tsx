@@ -57,7 +57,7 @@ export default () => {
       </thead>
 
       <tbody key={net}>
-        {[...Array(range(months)).keys()]
+        {[...Array(range(months + 1)).keys()]
           .map(i => (i + 1) * net)
           .map((r, i) => (
             <tr key={i}>
