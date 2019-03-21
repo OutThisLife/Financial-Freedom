@@ -5,11 +5,18 @@ import { palette } from 'styled-tools'
 
 import { FormCTX } from '..'
 
-const Wrapper = styled('table')`
+const Wrapper = styled('section')`
   position: relative;
-  table-layout: fixed;
-  border-collapse: collapse;
-  width: 100%;
+
+  @media (min-width: 1024px) {
+    padding: 0 calc(var(--pad) / 2);
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
 
   tr > * {
     cursor: default;
@@ -47,27 +54,29 @@ export default () => {
 
   return (
     <Wrapper>
-      <thead>
-        <tr>
-          <th style={{ width: 20 }}>&nbsp;</th>
-          <th>Cash ({perc(to_cash)})</th>
-          <th>Saved ({perc(to_savings)})</th>
-          <th>Assets ({perc(to_assets)})</th>
-        </tr>
-      </thead>
+      <table>
+        <thead>
+          <tr>
+            <th style={{ width: 20 }}>&nbsp;</th>
+            <th>Cash ({perc(to_cash)})</th>
+            <th>Saved ({perc(to_savings)})</th>
+            <th>Assets ({perc(to_assets)})</th>
+          </tr>
+        </thead>
 
-      <tbody key={net}>
-        {[...Array(range(months + 1)).keys()]
-          .map(i => i * net)
-          .map((r, i) => (
-            <tr key={i}>
-              <td>{i}</td>
-              <td>{fmt(cash + r * to_cash)}</td>
-              <td>{fmt(savings + r * to_savings)}</td>
-              <td>{fmt(assets + r * to_assets)}</td>
-            </tr>
-          ))}
-      </tbody>
+        <tbody key={net}>
+          {[...Array(range(months + 1)).keys()]
+            .map(i => i * net)
+            .map((r, i) => (
+              <tr key={i}>
+                <td>{i}</td>
+                <td>{fmt(cash + r * to_cash)}</td>
+                <td>{fmt(savings + r * to_savings)}</td>
+                <td>{fmt(assets + r * to_assets)}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
     </Wrapper>
   )
 }

@@ -38,6 +38,15 @@ export const GlobalStyles = createGlobalStyle`
     background: ${palette('secondary')}
   }
 
+  ::-webkit-scrollbar {
+    width: 3px;
+    background: ${palette('bg')};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${palette('text')}
+  }
+
   *:focus {
     outline: none;
   }
@@ -57,8 +66,13 @@ export const GlobalStyles = createGlobalStyle`
       transparentize(0.85)
     )}, inset 0 0 0 1px var(--border);
 
-    &:focus {
+    &:not([readonly]):focus {
       --border: ${palette('primary')}
+    }
+
+    &[readonly] {
+      color: ${palette('secondary')};
+      box-shadow: none;
     }
   }
 `

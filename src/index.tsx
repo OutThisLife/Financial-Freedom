@@ -14,10 +14,10 @@ export const FormCTX = createContext<{
 
 const Wrapper = styled('section')`
   display: grid;
-  align-items: flex-start;
-  width: 100vw;
-  max-width: 1600px;
   position: relative;
+  max-width: 1400px;
+  height: 100vh;
+  overflow: hidden;
   margin: auto;
 
   @media (min-width: 1024px) {
@@ -34,8 +34,16 @@ const Wrapper = styled('section')`
     grid-column: 3 / 12;
 
     @media (min-width: 1024px) {
-      position: sticky;
-      top: var(--pad);
+      display: flex;
+      flex-wrap: wrap;
+
+      fieldset {
+        align-self: flex-end;
+
+        + div {
+          align-self: flex-start;
+        }
+      }
     }
 
     @media (max-width: 1024px) {
@@ -43,8 +51,14 @@ const Wrapper = styled('section')`
     }
   }
 
-  > table {
+  > section {
     grid-column: 15 / -3;
+
+    @media (min-width: 1024px) {
+      max-height: calc(100vh - (var(--pad) * 2));
+      overflow: auto;
+      align-self: center;
+    }
 
     @media (max-width: 1024px) {
       grid-column: 1 / -1;

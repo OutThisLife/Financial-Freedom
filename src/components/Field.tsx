@@ -12,6 +12,10 @@ const Wrapper = styled('label')`
   grid-gap: var(--pad);
   align-items: center;
 
+  &[readonly] {
+    pointer-events: none;
+  }
+
   &:not(:first-of-type) {
     margin-top: calc(var(--pad) / 4);
   }
@@ -25,6 +29,10 @@ const Wrapper = styled('label')`
     }
   }
 
+  &[readonly] div {
+    opacity: 0.25;
+  }
+
   input {
     width: 100%;
   }
@@ -33,8 +41,10 @@ const Wrapper = styled('label')`
 export default ({ title, step = 100, ...props }) => {
   const { form, setValue } = useContext(FormCTX)
   const key = slugify(title)
+  const value = form[key]
 
   const onChange = ({ target: { rawValue } }) =>
+    rawValue.length &&
     setValue({
       ...Object.defineProperty(form, key, {
         value: parseFloat(rawValue),
@@ -44,17 +54,16 @@ export default ({ title, step = 100, ...props }) => {
     })
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <div>{title}</div>
 
       <Cleave
         type="text"
-        value={form[key]}
         options={{
           numeral: true,
           numeralDecimalScale: 2
         }}
-        {...{ onChange }}
+        {...{ value, onChange }}
         {...props}
       />
     </Wrapper>

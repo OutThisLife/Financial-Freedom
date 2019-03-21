@@ -13,6 +13,7 @@ const Wrapper = styled('form')`
     margin: 0;
     padding: var(--pad);
     border: 1px solid ${withProp(palette('text'), transparentize(0.9))};
+    border-top-width: 2px;
   }
 
   hr {
@@ -27,15 +28,11 @@ const Wrapper = styled('form')`
 
 const Stats = styled('div')`
   display: grid;
-  grid-template-columns: max-content auto;
+  grid-template-columns: max-content minmax(max-content, 50px);
   grid-column-gap: calc(var(--pad) / 2);
-  text-align: right;
-  justify-content: right;
-  padding: var(--pad) 0 0;
-
-  @media (max-width: 1024px) {
-    padding: var(--pad);
-  }
+  white-space: nowrap;
+  padding: var(--pad);
+  padding-left: 0;
 `
 
 export default () => {
@@ -52,12 +49,16 @@ export default () => {
           step={4}
         />
 
+        <hr />
+
         <Field title="Income/mo" placeholder="What do you make per month?" />
 
         <Field
           title="Expenses/mo"
           placeholder="How much do you pay for bills?"
         />
+
+        <Field title="Net" readOnly />
 
         <hr />
 
@@ -69,6 +70,7 @@ export default () => {
 
         <Field title="% to assets" placeholder="0.2" step={0.1} />
         <Field title="% to savings" placeholder="0.1" step={0.1} />
+        <Field title="% to cash" readOnly />
 
         <button type="submit" />
       </fieldset>
