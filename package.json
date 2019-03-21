@@ -6,7 +6,7 @@
   "author": "Talasan Nicholson <talasan.nicholson@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "parcel serve .out/",
+    "start": "serve dist/",
     "dev": "parcel src/index.html --no-cache",
     "build": "parcel build src/index.html"
   },
@@ -28,6 +28,7 @@
     "polished": "^3.0.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "serve": "^10.1.2",
     "styled-components": "^4.1.3",
     "styled-tools": "^1.7.1"
   }
